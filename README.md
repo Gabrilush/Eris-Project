@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/ggeop/Python-ai-assistant.svg?branch=master)](https://travis-ci.org/ggeop/Python-ai-assistant)
 
 
-![alt text](https://github.com/Gabrilush/Eris-Project/imgs/eris_logo.png)
+![alt text](https://github.com/Gabrilush/Eris-Project/blob/main/imgs/eris_logo.png)
 
 # Sobre ERIS - Una inteligencia artificial automática.
 Eris es una inteligencia vía comandos de voz, en base del lenguaje [Python 3.5+](https://www.python.org/downloads/release/python-360/)
