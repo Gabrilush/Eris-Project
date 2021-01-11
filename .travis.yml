@@ -1,0 +1,21 @@
+language: python
+matrix:
+  include:
+    - name: "Ubuntu 18.04 Job"
+    - os: linux
+    - dist: bionic
+    - python:
+        - "3.5"
+        - "3.6"
+    - name: "Ubuntu 16.04 Job"
+    - os: linux
+    - dist: xenial
+    - python:
+        - "3.5"
+        - "3.6"
+install:
+  - sudo bash setup.sh
+script:
+  - sudo bash run_tests.sh
+notifications:
+  email: false
