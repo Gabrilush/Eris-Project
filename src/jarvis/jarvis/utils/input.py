@@ -53,16 +53,16 @@ def validate_digits_input(message, values_range=None):
 
 
 def check_input_to_continue(message=''):
-    positive_answers = ['yes', 'y', 'sure', 'yeah']
+    positive_answers = ['si', 's', 'claro', 'sep']
     if message:
-        console_manager.console_output(message + ' (y/n): ', refresh_console=False)
+        console_manager.console_output(message + ' (s/n): ', refresh_console=False)
     return jarvis.input_engine.recognize_input(already_activated=True) in positive_answers
 
 
 def validate_input_with_choices(available_choices):
     user_input = jarvis.input_engine.recognize_input(already_activated=True)
     while not user_input in available_choices:
-        jarvis.output_engine.assistant_response('Please select on of the values: {0}'.format(available_choices))
+        jarvis.output_engine.assistant_response('Seleccione uno de los valores: {0}'.format(available_choices))
         user_input = jarvis.input_engine.recognize_input(already_activated=True)
     return user_input
 

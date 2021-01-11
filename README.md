@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/ggeop/Python-ai-assistant.svg?branch=master)](https://travis-ci.org/ggeop/Python-ai-assistant)
 
 
-![alt text](https://github.com/ggeop/Python-ai-assistant/blob/master/imgs/jarvis_logo.png)
+![alt text](https://github.com/ggeop/Python-ai-assistant/blob/master/imgs/eris_logo.png)
 
 # Sobre ERIS - Una inteligencia artificial automática.
 Eris es una inteligencia vía comandos de voz, en base del lenguaje [Python 3.5+](https://www.python.org/downloads/release/python-360/)
@@ -73,7 +73,6 @@ nano Jarvis/src/jarvis/jarvis/setting.py
 ```
 
 ### Start voice commanding assistant
-![alt text](https://github.com/ggeop/Jarvis/blob/master/imgs/Jarvis_printscreen.PNG)
 
 *   Start the assistant service:
 ```bash
