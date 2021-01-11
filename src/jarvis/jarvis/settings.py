@@ -91,7 +91,7 @@ Google text to speech API settings
 """
 GOOGLE_SPEECH = {
 
-    'lang': "en"
+    'lang': "es"
 }
 
 
