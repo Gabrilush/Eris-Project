@@ -92,18 +92,3 @@ You can easily add a new skill in two steps.
 }               
 ```
 *   Create a new skill module in **skills/collection**
-
-### Desicion Model
-![alt text](https://github.com/ggeop/Jarvis/blob/master/imgs/desicion_model.png)
-
-### Extract skill
-The skill extraction implement in a matrix of [TF-IDF features](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html) for each skill.
-In the following example he have a dimensional space with three skills.
-The user input analyzed in this space and by using a similarity metric (e.g cosine) we find the most similar skill.
-![alt text](https://github.com/ggeop/Jarvis/blob/master/imgs/skill_space_desicion.png)
-
----
-
-## Contributing
-* PRs are welcome :relaxed:
-* Try to follow PEP 8 guidelines and add comments!

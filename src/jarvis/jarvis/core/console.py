@@ -27,7 +27,7 @@ import logging
 
 from jarvis import settings
 from jarvis.utils.mongoDB import db
-from jarvis.utils.console import jarvis_logo, start_text, OutputStyler, headerize
+from jarvis.utils.console import eris_logo, start_text, OutputStyler, headerize
 from jarvis.enumerations import MongoCollections, InputMode
 
 
@@ -45,38 +45,6 @@ class ConsoleManager:
         subprocess.call('tput reset' if os.name == 'posix' else 'cls', shell=True)
 
     def console_output(self, text='', debug_log=None, info_log=None, warn_log=None, error_log=None, refresh_console=True):
-        """
-        This method creates the assistant output.
-        The output has four sectors:
-            * GENERAL INFO: Info about assistant settigs
-            * SYSTEM: System info e.g assistant memory usage
-            * LOG: Assistant log last lines
-            * ASSISTANT: Assistant response output
-
-        Output example:
-
-              ██╗ █████╗ ██████╗ ██╗   ██╗██╗███████╗
-              ██║██╔══██╗██╔══██╗██║   ██║██║██╔════╝
-              ██║███████║██████╔╝██║   ██║██║███████╗
-         ██   ██║██╔══██║██╔══██╗╚██╗ ██╔╝██║╚════██║
-         ╚█████╔╝██║  ██║██║  ██║ ╚████╔╝ ██║███████║
-          ╚════╝ ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚══════╝
-          NOTE: CTRL + C If you want to Quit.
-        -------------------------------------- GENERAL INFO ---------------------------------------------
-        RESPONSE IN SPEECH: NOT ENABLED
-        INPUT MODE: TEXT
-        ---------------------------------------- SYSTEM --------------------------------------------------
-        RAM USAGE: 0.14 GB
-        ----------------------------------------- LOG ----------------------------------------------------
-        2020-04-25 19:22:51,524 - root - INFO - Startup checks..
-        2020-04-25 19:22:51,534 - root - DEBUG - Internet connection check..
-        2020-04-25 19:22:51,773 - root - INFO - Internet connection passed!
-        2020-04-25 19:22:51,783 - root - INFO - Application started
-
-        ---------------------------------------- ASSISTANT ------------------------------------------------
-        > The current date is: 2020-04-25
-        -------------------------------------------- - ----------------------------------------------------
-        """
 
         if refresh_console:
             self.clear()
@@ -84,8 +52,8 @@ class ConsoleManager:
             # ----------------------------------------------------------------------------------------------------------
             # Logo sector
             # ----------------------------------------------------------------------------------------------------------
-            self._stdout_print(jarvis_logo + start_text)
-            self._stdout_print("     NOTE: CTRL + C If you want to Quit.")
+            self._stdout_print(eris_logo + start_text)
+            self._stdout_print("     TIP: CTRL + C para apagar en caso de emergencia.")
 
             # ----------------------------------------------------------------------------------------------------------
             # General info sector
@@ -93,19 +61,19 @@ class ConsoleManager:
             settings_documents = db.get_documents(collection=MongoCollections.GENERAL_SETTINGS.value)
             if settings_documents:
                 settings_ = settings_documents[0]
-                print(OutputStyler.HEADER + headerize('GENERAL INFO') + OutputStyler.ENDC)
-                enabled = OutputStyler.GREEN + 'ENABLED' + OutputStyler.ENDC if settings_['response_in_speech'] else OutputStyler.WARNING + 'NOT ENABLED' + OutputStyler.ENDC
-                print(OutputStyler.BOLD + 'RESPONSE IN SPEECH: ' + enabled)
-                print(OutputStyler.BOLD + 'INPUT MODE: ' + OutputStyler.GREEN + '{0}'.format(settings_['input_mode'].upper() + OutputStyler.ENDC) + OutputStyler.ENDC)
+                print(OutputStyler.HEADER + headerize('INFORMACION') + OutputStyler.ENDC)
+                enabled = OutputStyler.GREEN + 'ACTIVO' + OutputStyler.ENDC if settings_['response_in_speech'] else OutputStyler.WARNING + 'NO ACTIVADO' + OutputStyler.ENDC
+                print(OutputStyler.BOLD + 'RESPUESTA AL DIALOGO: ' + enabled)
+                print(OutputStyler.BOLD + 'MODO DE ENTRADA: ' + OutputStyler.GREEN + '{0}'.format(settings_['input_mode'].upper() + OutputStyler.ENDC) + OutputStyler.ENDC)
                 if settings_['input_mode'] == InputMode.VOICE.value:
-                    print(OutputStyler.BOLD + 'NOTE: ' + OutputStyler.GREEN + "Include " + "'{0}'".format(settings_['assistant_name'].upper()) + " in you command to enable assistant" + OutputStyler.ENDC + OutputStyler.ENDC)
+                    print(OutputStyler.BOLD + 'NOTA: ' + OutputStyler.GREEN + "Incluye " + "'{0}'".format(settings_['assistant_name'].upper()) + " en los comandos para activar" + OutputStyler.ENDC + OutputStyler.ENDC)
 
             # ----------------------------------------------------------------------------------------------------------
             # System info sector
             # ----------------------------------------------------------------------------------------------------------
             print(OutputStyler.HEADER + headerize('SYSTEM') + OutputStyler.ENDC)
             print(OutputStyler.BOLD +
-                  'RAM USAGE: {0:.2f} GB'.format(self._get_memory()) + OutputStyler.ENDC)
+                  'USO ESTIMADO DE RAM: {0:.2f} GB'.format(self._get_memory()) + OutputStyler.ENDC)
 
             # ----------------------------------------------------------------------------------------------------------
             # Assistant logs sector
@@ -136,7 +104,7 @@ class ConsoleManager:
             # ----------------------------------------------------------------------------------------------------------
             # Assistant input/output sector
             # ----------------------------------------------------------------------------------------------------------
-            print(OutputStyler.HEADER + headerize('ASSISTANT') + OutputStyler.ENDC)
+            print(OutputStyler.HEADER + headerize('ASISTENTE') + OutputStyler.ENDC)
             if text:
                 print(OutputStyler.BOLD + '> ' + text + '\r' + OutputStyler.ENDC)
                 print(OutputStyler.HEADER + headerize() + OutputStyler.ENDC)
