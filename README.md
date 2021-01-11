@@ -6,14 +6,14 @@
 
 ![alt text](https://github.com/ggeop/Python-ai-assistant/blob/master/imgs/jarvis_logo.png)
 
-# About Jarvis - An Intelligent AI Consciousness ­ЪДа
-Jarvis is a voice commanding assistant service in [Python 3.5+](https://www.python.org/downloads/release/python-360/)
-It can recognize human speech, talk to user and execute basic commands.
+# Sobre ERIS - Una inteligencia artificial automática.
+Eris es una inteligencia vía comandos de voz, en base del lenguaje [Python 3.5+](https://www.python.org/downloads/release/python-360/)
+Puede reconocer voces y ejecutar comandos básicos.
 
-#### Assistant Skills 
-*   **Opens a web page** (e.g 'Jarvis open youtube')
-*   **Play music in Youtube** (e.g 'Jarvis play mozart')
-*   **Increase/decrease** the speakers master volume (also can set max/mute speakers volume) ** (e.g 'Jarvis volume up!')
+#### Habilidades esperadas
+*   **Abrir una dirección web** (e.j 'Jarvis open youtube')
+*   **Reproducir música en youtube** (e.j 'Jarvis play mozart')
+*   **Aumentar/disminuir** el volumen de reproducción (tambien puede mutear/resumir el volumen) ** (e.j 'Jarvis volume up!')
 *   **Opens libreoffice suite applications (calc, writer, impress)** (e.g 'Jarvis open calc')
 *   **Tells about something**, by searching on the internet (e.g 'Jarvis tells me about oranges')
 *   **Tells the weather** for a place (e.g 'Jarvis tell_the_skills me the weather in London')
